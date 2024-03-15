@@ -18,12 +18,12 @@ void main() {
   printf("Median: %u\n", median);
 
   unsigned char max_value = maximum(test, SIZE);
-  unsigned char min_value = minumum(test, SIZE);
+  unsigned char min_value = minimum(test, SIZE);
   float avg_value = find_mean(test, SIZE);
 
   print_statistics(min_value, max_value, avg_value, median);
 
-  
+
 }
 
 /*
@@ -79,7 +79,7 @@ unsigned char maximum(unsigned char *array, unsigned int length)
   return max;
 }
 
-unsigned char minumum(unsigned char *array, unsigned int length)
+unsigned char minimum(unsigned char *array, unsigned int length)
 {
   unsigned char min;
   for (int i = 0; i < length; i++)
