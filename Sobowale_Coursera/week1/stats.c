@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include "stats.h"
 
@@ -13,7 +12,13 @@ void main()
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
+
+                        
   /* Statistics and Printing Functions Go Here */
+  print_array(test, 40);
+  char median;
+  median = find_median(test, 40);
+  printf("%c\n", median);
 
 }
 /*
@@ -25,9 +30,11 @@ void main()
 **/
 void print_array (unsigned char *array, unsigned int length)
 {
+  printf("To print all the elements in the array\n");
+
   for (int i = 0; i < length; i++)
   {
-    printf("%u", array[i]);
+    printf("%u ", array[i]);
   }
   printf("\n");
 }
@@ -86,6 +93,34 @@ unsigned char minumum(unsigned char *array, unsigned int length)
 
 void sort_array (unsigned char *array, unsigned int length)
 {
-  // to sort the array
+  
+  // to sort the array from highest to lowest
+  unsigned char mid;
+  unsigned char new_array[40]; 
+  mid = length / 2;
 
+  for (int i = 0; i < length - 1; i++)
+  {
+    for (int j = 0; j < length - 1; j++)
+    {
+      if (array[j] < array[j + 1])
+      {
+        unsigned char tmp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = tmp;
+
+      }
+    }
+  }
 }
+
+void print_statistics(unsigned char minimum, unsigned char maximum, float mean, unsigned char median)
+{
+  
+    printf("Statistics:\n");
+    printf("Minimum: %u\n", minimum);
+    printf("Maximum: %u\n", maximum);
+    printf("Mean: %.2f\n", mean); 
+    printf("Median: %u\n", median);
+}
+
