@@ -22,8 +22,6 @@ int find_mean(unsigned char *array, unsigned int length); //  Given an array of 
 unsigned char maximum(unsigned char *array, unsigned int length); //  Given an array of data and a length, returns the maximum
 
 unsigned char minimum(unsigned char *array, unsigned int length); //  Given an array of data and a length, returns the minumum
-
-
-void sort_array();
+void sort_array (unsigned char *array, unsigned int length); // sorts given list from largest to smallest
 
 #endif /* __STATS_H__ */
