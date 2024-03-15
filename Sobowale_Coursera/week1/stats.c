@@ -4,23 +4,28 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main()
-{
+void main() {
 
-  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
-                              114, 88,   45,  76, 123,  87,  25,  23,
-                              200, 122, 150, 90,   92,  87, 177, 244,
-                              201,   6,  12,  60,   8,   2,   5,  67,
-                                7,  87, 250, 230,  99,   3, 100,  90};
+  unsigned char test[SIZE] = {
+      34, 201, 190, 154, 8, 194, 2, 6, 114, 88, 45, 76, 123, 87, 25, 23,
+      200, 122, 150, 90, 92, 87, 177, 244, 201, 6, 12, 60, 8, 2, 5, 67,
+      7, 87, 250, 230, 99, 3, 100, 90};
 
-                        
-  /* Statistics and Printing Functions Go Here */
-  print_array(test, 40);
-  char median;
-  median = find_median(test, 40);
-  printf("%c\n", median);
+  /* Function Calls for Statistics and Printing */
+  print_array(test, SIZE);
 
+  unsigned char median = find_median(test, SIZE);
+  printf("Median: %u\n", median);
+
+  unsigned char max_value = maximum(test, SIZE);
+  unsigned char min_value = minumum(test, SIZE);
+  float avg_value = find_mean(test, SIZE);
+
+  print_statistics(min_value, max_value, avg_value, median);
+
+  
 }
+
 /*
   *  print_array - function that prints all the data in an array
   * @array: variable that contain the array
@@ -116,7 +121,7 @@ void sort_array (unsigned char *array, unsigned int length)
 
 void print_statistics(unsigned char minimum, unsigned char maximum, float mean, unsigned char median)
 {
-  
+
     printf("Statistics:\n");
     printf("Minimum: %u\n", minimum);
     printf("Maximum: %u\n", maximum);
