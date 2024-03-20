@@ -129,7 +129,6 @@ compile-all: $(SOURCES)
 .PHONY: build
 build: $(OUTS)
 #main.out
-# I've a question here, if I set the prerequisites to main.o instead of main.out, the process doesn't get finished ... also how can make compiles the files and generate the object files when they are not provided by user as prerequesites. How can make understand that it should generate the .o files from the .c files before proceeding?
 $(OUTS): $(SOURCES)
 	$(CC) $(DEFINEFLAG) $(CFLAGS) $(LDFLAGS) -o c1m2.out $^ 
 	size c1m2.out
