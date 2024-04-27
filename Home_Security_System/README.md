@@ -4,7 +4,7 @@
 This project aims to develop a Smart Home Security and Automation System using a combination of electronic components and embedded systems.
 
 ## Equipment Required
-- Arduino Uno or similar microcontroller board as the central control unit.
+- Arduino Uno as the central control unit.
 - PIR (Passive Infrared) sensor for motion detection.
 - HCSR04 ultrasonic sensor for distance measurement.
 - Remote control module for wireless control and interaction.
