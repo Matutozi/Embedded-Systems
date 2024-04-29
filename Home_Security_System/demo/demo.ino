@@ -1,4 +1,4 @@
-#include <LiquidCrystal.h>
+#include "main.h"
 //use the remote to select various modes
 //security mode, turn on the lights, control the doors, gardens and other parts  of the house
 //Connecting the ultrasonic sensor as a starting point of my project.
@@ -31,32 +31,13 @@ void setup() {
   pinMode(echoPin, INPUT);
   pinMode(buttonPin, INPUT);
   digitalWrite(buttonPin, HIGH); //setting the state of the button
-  
+
   Serial.begin(9600);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  pingTravelTime = pulseIn(echoPin, HIGH);
-  delay(30);
-  pingTravelDistance = (pingTravelTime * 765. * 5280. * 12) / (3600. * 1000000);
-  
-  distance_to_target = pingTravelDistance / 2;
-  //Serial.print("Your distance to the target is: ");
-  lcd.clear();
-  lcd.setCursor(0,0);
-  lcd.print("Target Distance: ");
-  lcd.print(distance_to_target);
-  lcd.print("  Inches");
-
-  //Serial.print(distance_to_target);
-  //Serial.println(" inches.");
-  delay(500);
-  lcd.clear();  // remove this one to remove the flicker between distance measured
+  distance_to_target= measure_distance(); // to get the distance from the h2-sr04 sensor
+  display_distance(distance_to_target); // to display the result using the LCD 1602 display
 
 }
