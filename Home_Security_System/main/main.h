@@ -2,6 +2,7 @@
 #define FUNCTIONS_H
 
 #include <LiquidCrystal.h>
+#include <IRremote.h>
 
 float measure_distance(); //calculates the distance using the H2-Sr04
 void display_distance(float distance_to_target); //function that displays result on the LCD1602 display

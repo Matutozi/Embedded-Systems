@@ -1,5 +1,7 @@
 //functions for my home automation system
 #include "main.h"
+#include <IRremote.h>
+
 
 float measure_distance()
 {
@@ -31,4 +33,17 @@ void display_distance(float distance_to_target)
   //Serial.println(" inches.");
   delay(500);
   lcd.clear();  // remove this one to remove the flicker between distance measured
+}
+
+void setupRemote()
+{
+  // function that control the remote control
+  //to sit and wait for the data
+  while (IR.decode(&command) == 0) //gets value from the function
+  {
+
+  }
+  Serial.print(command.value, HEX);
+  delay(1500);
+  IR.resume();
 }

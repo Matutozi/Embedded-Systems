@@ -2,6 +2,7 @@
 //use the remote to select various modes
 //security mode, turn on the lights, control the doors, gardens and other parts  of the house
 //Connecting the ultrasonic sensor as a starting point of my project.
+//#include <IRremote.h>
 
 //pins for the ultrasonic sensor
 int trigPin = 12;
@@ -22,6 +23,10 @@ int pir = 15;
 //pin for button state control
 int buttonPin = 16;
 
+//setup of remote
+int IRpin = 11;
+IRrecv IR(IRpin);
+decode_results command;
 
 LiquidCrystal lcd(rs,en,d4,d5,d6,d7);
 void setup() {
@@ -30,8 +35,8 @@ void setup() {
   pinMode(echoPin, INPUT);
   pinMode(buttonPin, INPUT);
   digitalWrite(buttonPin, HIGH); //setting the state of the button
-
   Serial.begin(9600);
+  IR.enableIRIn(); //to enable the ir remote system
 }
 
 void loop() {
